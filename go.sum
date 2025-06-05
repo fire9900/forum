@@ -15,6 +15,8 @@ github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/dustin/go-humanize v1.0.1 h1:GzkhY7T5VNhEkwH0PVJgjz+fX1rhBrR7pRT3mDkpeCY=
 github.com/dustin/go-humanize v1.0.1/go.mod h1:Mu1zIs6XwVuF/gI1OepvI0qD18qycQx+mFykh5fBlto=
+github.com/fire9900/auth v0.0.0-20250605030204-e3e8c18080f6 h1:5ErEX+JNg5eVNqamC0bHSFWANZDJv16t/oV0aSKnnPU=
+github.com/fire9900/auth v0.0.0-20250605030204-e3e8c18080f6/go.mod h1:UWE9MC84+bk35S4r/L+jidbxUjE1UrkvdocLXCTSIjw=
 github.com/gabriel-vasile/mimetype v1.4.9 h1:5k+WDwEsD9eTLL8Tz3L0VnmVh9QxGjRmjBvAG7U/oYY=
 github.com/gabriel-vasile/mimetype v1.4.9/go.mod h1:WnSQhFKJuBlRyLiKohA/2DtIlPFAbguNaG7QCHcyGok=
 github.com/gin-contrib/cors v1.7.4 h1:/fC6/wk7rCRtqKqki8lLr2Xq+hnV49aXDLIuSek9g4k=

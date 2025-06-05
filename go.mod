@@ -1,10 +1,10 @@
 module github.com/fire9900/forum
 
-go 1.23.6
+go 1.24.0
 
 require (
 	github.com/DATA-DOG/go-sqlmock v1.5.2
-	github.com/fire9900/auth v0.0.1
+	github.com/fire9900/auth v0.0.0-20250605030204-e3e8c18080f6
 	github.com/gin-contrib/cors v1.7.4
 	github.com/gin-gonic/gin v1.10.0
 	github.com/golang-migrate/migrate/v4 v4.18.2
@@ -66,4 +66,9 @@ require (
 	modernc.org/libc v1.62.1 // indirect
 	modernc.org/mathutil v1.7.1 // indirect
 	modernc.org/memory v1.9.1 // indirect
+)
+
+replace (
+	github.com/fire9900/auth => ../auth
+	google.golang.org/protobuf => google.golang.org/protobuf v1.31.0
 )
