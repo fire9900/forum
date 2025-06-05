@@ -1,0 +1,15 @@
+{"level":"info","ts":"2025-06-05T07:25:27.057+0400","caller":"app/logger.go:11","msg":"Логгер запущен на микросервисе forum-client"}
+{"level":"info","ts":"2025-06-05T07:25:27.103+0400","caller":"app/appForum.go:20","msg":"Подключение к базе данных прошло успешно"}
+{"level":"info","ts":"2025-06-05T07:25:27.103+0400","caller":"app/client.go:17","msg":"Успешное подключение к auth-client"}
+{"level":"info","ts":"2025-06-05T07:25:27.104+0400","caller":"wsserver/server.go:49","msg":"Запуск хаба WebSocket"}
+{"level":"info","ts":"2025-06-05T07:25:27.107+0400","caller":"app/appForum.go:28","msg":"Сервер стартует на порту :7777"}
+{"level":"info","ts":"2025-06-05T07:25:43.983+0400","caller":"app/logger.go:11","msg":"Логгер запущен на микросервисе forum-client"}
+{"level":"info","ts":"2025-06-05T07:25:44.025+0400","caller":"app/appForum.go:20","msg":"Подключение к базе данных прошло успешно"}
+{"level":"info","ts":"2025-06-05T07:25:44.026+0400","caller":"app/client.go:17","msg":"Успешное подключение к auth-client"}
+{"level":"info","ts":"2025-06-05T07:25:44.026+0400","caller":"wsserver/server.go:49","msg":"Запуск хаба WebSocket"}
+{"level":"info","ts":"2025-06-05T07:25:44.028+0400","caller":"app/appForum.go:28","msg":"Сервер стартует на порту :7777"}
+{"level":"info","ts":"2025-06-05T07:59:59.695+0400","caller":"app/logger.go:11","msg":"Логгер запущен на микросервисе forum-client"}
+{"level":"info","ts":"2025-06-05T07:59:59.732+0400","caller":"app/appForum.go:20","msg":"Подключение к базе данных прошло успешно"}
+{"level":"info","ts":"2025-06-05T07:59:59.733+0400","caller":"app/client.go:17","msg":"Успешное подключение к auth-client"}
+{"level":"info","ts":"2025-06-05T07:59:59.734+0400","caller":"wsserver/server.go:49","msg":"Запуск хаба WebSocket"}
+{"level":"info","ts":"2025-06-05T07:59:59.735+0400","caller":"app/appForum.go:28","msg":"Сервер стартует на порту :7777"}
