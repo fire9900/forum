@@ -1,0 +1,389 @@
+basePath: /api/v2
+definitions:
+  entity.Post:
+    properties:
+      content:
+        type: string
+      create_at:
+        type: string
+      id:
+        type: integer
+      thread_id:
+        type: integer
+      user_id:
+        type: integer
+    type: object
+  entity.Thread:
+    properties:
+      content:
+        type: string
+      create_at:
+        type: string
+      id:
+        type: integer
+      title:
+        type: string
+      user_ID:
+        type: integer
+    type: object
+host: localhost:7777
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: API для форума
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Forum API
+  version: "1.0"
+paths:
+  /posts/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Удалить пост по его идентификатору
+      parameters:
+      - description: ID поста
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+          schema:
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Удалить пост
+      tags:
+      - posts
+  /posts/user/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Получить все посты определенного пользователя
+      parameters:
+      - description: ID пользователя
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/entity.Post'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Получить посты пользователя
+      tags:
+      - posts
+  /thread/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Удалить тред по его идентификатору
+      parameters:
+      - description: ID треда
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+          schema:
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Удалить тред
+      tags:
+      - threads
+    get:
+      consumes:
+      - application/json
+      description: Получить тред по его идентификатору
+      parameters:
+      - description: ID треда
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entity.Thread'
+        "400":
+          description: Bad Request
+          schema:
+            type: object
+        "404":
+          description: Not Found
+          schema:
+            type: object
+      summary: Получить тред по ID
+      tags:
+      - threads
+  /thread/{id}/posts:
+    get:
+      consumes:
+      - application/json
+      description: Получить все посты определенного треда
+      parameters:
+      - description: ID треда
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/entity.Post'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            type: object
+      summary: Получить посты треда
+      tags:
+      - posts
+  /threads:
+    get:
+      consumes:
+      - application/json
+      description: Получить список всех тредов
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/entity.Thread'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            type: object
+      summary: Получить все треды
+      tags:
+      - threads
+    patch:
+      consumes:
+      - application/json
+      description: Редактировать тред
+      parameters:
+      - description: тред
+        in: body
+        name: post
+        required: true
+        schema:
+          $ref: '#/definitions/entity.Post'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entity.Thread'
+        "400":
+          description: Bad Request
+          schema:
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Редактировать тред
+      tags:
+      - thread
+    post:
+      consumes:
+      - application/json
+      description: Создать новый тред
+      parameters:
+      - description: Данные треда
+        in: body
+        name: thread
+        required: true
+        schema:
+          $ref: '#/definitions/entity.Thread'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entity.Thread'
+        "400":
+          description: Bad Request
+          schema:
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Создать тред
+      tags:
+      - threads
+  /threads/posts:
+    post:
+      consumes:
+      - application/json
+      description: Создать новый пост в треде
+      parameters:
+      - description: Данные поста
+        in: body
+        name: post
+        required: true
+        schema:
+          $ref: '#/definitions/entity.Post'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entity.Post'
+        "400":
+          description: Bad Request
+          schema:
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Создать пост
+      tags:
+      - posts
+  /threads/user/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Получить все треды определенного пользователя
+      parameters:
+      - description: ID пользователя
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/entity.Thread'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            type: object
+        "404":
+          description: Not Found
+          schema:
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Получить треды пользователя
+      tags:
+      - threads
+  /ws/threads/{thread_id}:
+    get:
+      consumes:
+      - application/json
+      description: Получить все сообщения чата в треде
+      parameters:
+      - description: ID треда
+        in: path
+        name: thread_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/entity.Post'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            type: object
+      summary: Получить сообщения чата
+      tags:
+      - chat
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
